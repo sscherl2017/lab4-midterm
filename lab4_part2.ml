@@ -75,7 +75,7 @@ Exercise 2A: Find the 7th term of the fibonacci sequence by using the
 the value `best_fib`.
 ......................................................................*)
 
-let best_fib = Fibonacci.eval ;;
+let best_fib = Fibonacci.eval 7 ;;
 
 (*......................................................................
 Exercise 2B: Find the last element of the `Studyplan` sequence, and
