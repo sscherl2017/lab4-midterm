@@ -156,21 +156,12 @@ that's the type you used in your implementation.
 
 module type INT_STACK =
   sig
-
-    exception EmptyStack
     type stack
-
-    (* Returns an empty stack *)
+    exception EmptyStack
     val empty : unit -> stack
-
-    (* Add an element to the top of the stack *)
-    let push : int -> stack -> stack
-
-    (* Return the value of the topmost element on the stack *)
-    let top : stack -> int
-
-    (* Return a modified stack with the topmost element removed *)
-    let pop : stack -> stack
+    val push : int -> stack -> stack
+    val top : stack -> int
+    val pop : stack -> stack
   end ;;
 
 (* Now, we'll apply the INT_STACK interface to the IntListStack. *)
@@ -187,4 +178,4 @@ perform list operations directly on it, which means the stack
 preserves its abstraction barrier.
 ......................................................................*)
 
-let safe_stack () = failwith "not implemented" ;;
+let safe_stack () = let open SafeIntListStack in empty () |> push 5 |> push 1 ;;

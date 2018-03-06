@@ -127,4 +127,3 @@ function, above, and pull the front element from it, naming the result
 front_el.
 ......................................................................*)
 
-let front_el = Queue.front (q ()) ;;
