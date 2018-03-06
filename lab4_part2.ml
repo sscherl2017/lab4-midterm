@@ -131,6 +131,6 @@ code. You'll just want to replace the trivial module definition
 "struct end" in the code below.
 ......................................................................*)
 
-module SequenceFibonacci = (Fibonacci : sequence) ;;
-module SequenceInverse = (Inverse : sequence) ;;
-module SequenceStudyplan = (Studyplan : sequence) ;;
+module SequenceFibonacci = (Fibonacci : Sequence) ;;
+module SequenceInverse = (Inverse : Sequence) ;;
+module SequenceStudyplan = (Studyplan : Sequence) ;;
