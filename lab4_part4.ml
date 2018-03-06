@@ -75,19 +75,19 @@ module Queue : QUEUE =
   struct
     exception EmptyQueue
 
-    type 'a queue = 'a      (* replace this with the correct 
-                               implementation type *)
+    type 'a queue = 'a list
 
-    let empty () : 'a queue =
-      failwith "not implemented"
+    let empty () : 'a queue = []
 
     let enqueue (el : 'a) (q : 'a queue) =
-      failwith "not implemented"
+      q @ [el] 
 
     (* dequeue_helper q -- Returns a pair of the front element of the
        queue and a queue containing the remaining elements *)
     let dequeue_helper (q : 'a queue) : ('a * 'a queue) =
-      failwith "not implemented"
+      match q with 
+      | [] -> raise EmptyQueue
+      | hd :: tl -> (hd, tl)
 
     let front (q: 'a queue) : 'a =
       fst (dequeue_helper q)
@@ -115,7 +115,11 @@ your Queue module to return a new queue with the following strings
 enqueued in order: "Computer", "Science", "51".
 ......................................................................*)
 
-let q = fun _ -> failwith "not implemented" ;;
+let q () = let open Queue in
+           empty ()
+           |> enqueue "Computer" 
+           |> enqueue "Science" 
+           |> enqueue "51" ;;
 
 (*......................................................................
 Exercise 4C: Write an expression to generate a queue with the q
@@ -123,4 +127,4 @@ function, above, and pull the front element from it, naming the result
 front_el.
 ......................................................................*)
 
-let front_el = "replace me with an expression using the Queue module" ;;
+let front_el = Queue.front (q ()) ;;
